@@ -1,0 +1,32 @@
+.animated-stack {
+  transform: translateX(calc(40px - (20% - 20px)));
+}
+
+.stack {
+  position: relative;
+  top: 58px;
+  width: calc(400%);
+  height: 348px;
+  overflow: hidden;
+  display: flex;
+}
+.stack__item {
+  width: 20%;
+  height: 70%;
+  padding: 29px;
+  z-index: 1;
+}
+.stack__image {
+  border-radius: 4px;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072);
+}
+.stack__icon {
+  height: 18px !important;
+  filter: url(#night);
+}
+
+/*# sourceMappingURL=style.css.map */
