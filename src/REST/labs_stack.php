@@ -5,7 +5,7 @@ namespace andyp\labsstack\REST;
 use \WP_REST_Request;
 
 
-class labs {
+class labs_stack {
 
     public $posts;
 

@@ -1,23 +1,26 @@
 <?php
 
-namespace andyp\labsstack\REST;
+namespace andyp\isometricrest\REST;
 
 use \WP_REST_Request;
 
+use \andyp\isometricrest\view\render_isometric;
 
-class labs_rest {
+
+class isometric_rest {
 
     public $posts;
 
     public $result;
 
-    public $count    = 5;
+    public $count    = 30;
     public $order    = 'date';
-    public $posttype = 'tutorial';
-    public $category;
+    public $posttype = 'pulse';
+    public $category = 'pulse_category';
+    public $cat_id   = 4;
     public $classes  = '';
-    public $content;
-    public $endpoint = "https://parkourlabs.com/wp-json/wp/v2";
+    public $content  = '';
+    public $endpoint = "https://parkourpulse.com/wp-json/wp/v2";
 
 
     public function set_count($count)
@@ -45,9 +48,19 @@ class labs_rest {
         $this->category = $category;
     }
 
+    public function set_cat_id($cat_id)
+    {
+        $this->cat_id = $cat_id;
+    }
+
     public function set_content($content)
     {
         $this->content = $content;
+    }
+
+    public function set_endpoint($endpoint)
+    {
+        $this->endpoint = $endpoint;
     }
 
 
@@ -55,7 +68,9 @@ class labs_rest {
     public function run()
     {
         $this->REST_call();
-
+        
+        
+        
         if (empty($this->content)){
             $this->render_link();
         }
@@ -64,6 +79,8 @@ class labs_rest {
             $this->render_content();
         }
 
+        $this->iso = new render_isometric($this->posts);
+        $this->result = $this->iso->render();
     }
 
 
@@ -73,21 +90,17 @@ class labs_rest {
      */
     private function REST_call()
     {
-        $transient = \get_transient( 'labsrest-'.$this->posttype );
+        // $transient = \get_transient( 'isometricrest-'.$this->posttype );
+
         if( ! empty( $transient ) ) { 
             $this->posts = json_decode($transient);
             return; 
-        }
-
-        $category_name = '';
-        if (!empty($this->category)){
-            $category_name = $this->posttype . '_category';
-        }    
+        } 
 
         $response = \wp_remote_get( add_query_arg( array(
             'per_page' => $this->count,
             'orderby' => $this->order,
-            $category_name => $this->category,
+            $this->category => $this->cat_id,
         ), $this->endpoint.'/'.$this->posttype ) );
 
 
@@ -95,8 +108,10 @@ class labs_rest {
         
         $this->posts = json_decode( $response['body'] ); // our posts are here
 
-        \set_transient( 'labsrest-'.$this->posttype, json_encode( $this->posts ), HOUR_IN_SECONDS );
+        // \set_transient( 'isometricrest-'.$this->posttype, json_encode( $this->posts ), HOUR_IN_SECONDS );
     }
+
+
 
 
     public function render_link()
@@ -118,6 +133,7 @@ class labs_rest {
 
         $this->result = $output;
     }
+
 
 
 

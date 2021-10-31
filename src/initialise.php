@@ -1,6 +1,6 @@
 <?php
 
-namespace andyp\labsstack;
+namespace andyp\isometricrest;
 
 class initialise {
 
@@ -11,8 +11,7 @@ class initialise {
         //  ┌─────────────────────────────────────────────────────────────────────────┐
         //  │                            Add Shortcodes                               │
         //  └─────────────────────────────────────────────────────────────────────────┘
-        require __DIR__.'/shortcodes/labs.php';
-        require __DIR__.'/shortcodes/labs_rest.php';
+        require __DIR__.'/shortcodes/isometric_rest.php';
 
     }
 

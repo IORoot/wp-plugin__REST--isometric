@@ -1,7 +1,7 @@
 {
     "autoload": {
         "psr-4": {
-            "andyp\\labsstack\\": "src/"
+            "andyp\\isometricrest\\": "src/"
         }
     }
 }

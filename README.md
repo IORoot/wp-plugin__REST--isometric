@@ -1,6 +1,6 @@
-# Labs Stack
+# REST Isometric
 
-This is a small shortcode to display a "stack" of images from the latest ParkouLabs images.
+This is a small shortcode to display anisometric view of images from the latest REST endpoint images.
 
 ## Deploy
 
@@ -16,4 +16,4 @@ sudo -u www-data wp transient delete labsstack
 
 ## Changelog
 
-v0.1 - parkourlabs REST calls and make isometric view.
+v0.1 - 

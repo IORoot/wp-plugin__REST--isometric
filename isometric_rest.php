@@ -3,16 +3,16 @@
 /*
  * 
  * @wordpress-plugin
- * Plugin Name:       _ANDYP - REST - labs latest posts
+ * Plugin Name:       _ANDYP - REST - Isometric View
  * Plugin URI:        http://londonparkour.com
- * Description:       <strong>🩳SHORTCODE</strong> | <em>Shortcode [andyp_labs_stack] </em> | REST Request to parkourlabs for latest posts.
+ * Description:       <strong>🩳SHORTCODE</strong> | <em>Shortcode [andyp_rest_iso] </em> | REST Request and view
  * Version:           1.0.0
  * Author:            Andy Pearson
  * Author URI:        https://londonparkour.com
  * Domain Path:       /languages
  */
 
-define( 'ANDYP_LABS_STACK_PATH', plugins_url( '/', __FILE__ ) );
+define( 'ANDYP_ISOMETRIC_REST_PATH', plugins_url( '/', __FILE__ ) );
 
 //  ┌─────────────────────────────────────────────────────────────────────────┐
 //  │                    Register with ANDYP Plugins                          │
@@ -29,5 +29,5 @@ require __DIR__.'/vendor/autoload.php';
 // ┌─────────────────────────────────────────────────────────────────────────┐
 // │                        	   Initialise    		                     │
 // └─────────────────────────────────────────────────────────────────────────┘
-new andyp\labsstack\initialise;
+new andyp\isometricrest\initialise;
 
